@@ -8,8 +8,7 @@ plugins {
 }
 
 group = "frankhjung"
-version = "0.0.1"
-
+version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -61,6 +60,10 @@ tasks.withType<Jar> {
   }
 }
 
-tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString() }
+tasks.withType<KotlinCompile> {
+  kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+}
 
-tasks.withType<Test> { useJUnitPlatform() }
+tasks.withType<Test> {
+  useJUnitPlatform()
+}

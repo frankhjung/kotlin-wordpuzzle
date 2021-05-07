@@ -1,10 +1,6 @@
 ---
 
-image: gradle:7.0
-
-stages:
-  - build
-  - test
+image: gradle:7.0.0
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
@@ -14,25 +10,13 @@ before_script:
 
 build:
   stage: build
-  script: gradle --build-cache assemble
+  script: gradle $GRADLE_CLI_OPTS --console=plain clean build
   artifacts:
     paths:
       - build
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
-    paths:
-      - build
-      - .gradle
-
-test:
-  stage: test
-  script: gradle test
-  artifacts:
-    paths:
-      - build/reports
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
     paths:
       - build
       - .gradle

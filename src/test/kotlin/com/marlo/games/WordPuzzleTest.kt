@@ -10,11 +10,15 @@ class WordPuzzleTest {
     const val LETTERS = "adevcrsoi"
   }
 
-  @Test fun isValidWord() = assertTrue(isValid(LETTERS, "voiced"))
+  @Test
+  fun isValidWord() = assertTrue(isValid(LETTERS, "voiced"))
 
-  @Test fun isInvalidWord() = assertFalse(isValid(LETTERS, "voixed"))
+  @Test
+  fun isInvalidWord() = assertFalse(isValid(LETTERS, "voixed"))
 
-  @Test fun tooManyOs() = assertFalse(isValid(LETTERS, "vooiced"))
+  @Test
+  fun tooManyOs() = assertFalse(isValid(LETTERS, "vooiced"))
 
-  @Test fun tooLarge() = assertFalse(isValid(LETTERS, LETTERS + "moreletters"))
+  @Test
+  fun tooLarge() = assertFalse(isValid(LETTERS, LETTERS + "moreletters"))
 }
