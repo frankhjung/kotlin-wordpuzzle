@@ -4,13 +4,15 @@ image: gradle:7.0.0
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  GRADLE_CLI_OPTS: "--build-cache --console=plain"
+  # GRADLE_CLI_OPTS: " --build-cache --console=plain --continue --debug"
 
 before_script:
   - export GRADLE_USER_HOME=${CI_PROJECT_DIR}/.gradle
 
 build:
   stage: build
-  script: gradle ${GRADLE_CLI_OPTS} --build-cache --console=plain --continue --debug clean build
+  script: gradle ${GRADLE_CLI_OPTS} ${BUILD_OPTS} clean build
   artifacts:
     paths:
       - build
@@ -20,3 +22,18 @@ build:
     paths:
       - build
       - .gradle
+
+pages:
+  stage: deploy
+  image: alpine
+  only:
+    refs:
+      - master
+  except:
+    - tags
+  script:
+    - mv build/reports/tests/test/ public
+  artifacts:
+    paths:
+      - public
+      - build/distributions/
