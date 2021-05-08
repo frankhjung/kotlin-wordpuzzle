@@ -28,16 +28,15 @@ fun main(args: Array<String>) {
 
   // get username from commandline argument
   parser.parse(args)
-
   logger.debug("dictionary: $dictionary")
   logger.debug("size: $size")
   logger.debug("mandatory: $mandatory")
   logger.debug("letters: $letters")
 
-  // prepare game bean
+  // prepare game bean and solve puzzle
   try {
     val game = Game(dictionary, size, mandatory.first(), letters)
-    wordPuzzle(game).forEach { println(it) }
+    solve(game).forEach { println(it) }
     exitProcess(0)
   } catch (t: Throwable) {
     logger.error("${t.message}")

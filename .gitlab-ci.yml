@@ -5,14 +5,14 @@ image: gradle:7.0.0
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   GRADLE_CLI_OPTS: "--build-cache --console=plain"
-  # GRADLE_CLI_OPTS: " --build-cache --console=plain --continue --debug"
+  # GRADLE_CLI_OPTS: " --build-cache --console=plain --debug"
 
 before_script:
   - export GRADLE_USER_HOME=${CI_PROJECT_DIR}/.gradle
 
 build:
   stage: build
-  script: gradle ${GRADLE_CLI_OPTS} ${BUILD_OPTS} clean build
+  script: gradle ${GRADLE_CLI_OPTS} clean build
   artifacts:
     paths:
       - build

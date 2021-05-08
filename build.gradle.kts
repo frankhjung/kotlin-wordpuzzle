@@ -4,7 +4,6 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_ERROR
 import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   id("com.diffplug.spotless") version "5.12.4"
@@ -66,9 +65,11 @@ tasks.withType<Jar> {
   }
 }
 
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
-}
+// import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+// tasks.withType<KotlinCompile> {
+//  // default is version "1.8"
+//  kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+// }
 
 tasks.withType<Test> {
   useJUnitPlatform()

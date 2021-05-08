@@ -28,8 +28,8 @@ To build a fat JAR I am using [Gradle Shadow](https://imperceptiblethoughts.com/
 
 ```bash
 ./gradlew run --args="-h"
-kotlin -cp build/libs/games-0.0.1-all.jar com.marlo.games.MainKt -h
-java -cp build/libs/games-0.0.1-all.jar com.marlo.games.MainKt -h
+kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 ```
 
 ## Examples
@@ -40,8 +40,8 @@ Print program help message using one of:
 
 ```bash
 ./gradlew run --args="-h"
-kotlin -cp build/libs/games-0.0.1-all.jar com.marlo.games.MainKt -h
-java -cp build/libs/games-0.0.1-all.jar com.marlo.games.MainKt -h
+kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 ```
 
 This will print the help message:
@@ -49,7 +49,7 @@ This will print the help message:
 For example:
 
 ```bash
-$ java -cp build/libs/games-0.0.1-all.jar com.marlo.games.MainKt -h
+$ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 Usage: wordpuzzle options_list
 Options:
     --dictionary, -d [dictionary/british] -> dictionary to use in word search { String }

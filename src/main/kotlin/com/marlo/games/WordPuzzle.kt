@@ -7,7 +7,7 @@ data class Game(val dictionary: String, val size: Int, val mandatory: Char, val 
   /** Validate all parameters. */
   init {
     require(File(dictionary).exists()) { "cannot open dictionary $dictionary" }
-    require(size in 1..9) { "invalid size, must be in range 1..9" }
+    require(size in 1..9) { "invalid size, must be in range 1 to 9" }
     require(letters.length == 9 && isAllLowerCaseLetters(letters)) { "require 9 letters" }
     require(letters.contains(mandatory)) { "mandatory not in letters" }
   }
@@ -42,7 +42,7 @@ fun isValid(letters: String, word: String): Boolean {
  * @param game
  * @return list of words
  */
-fun wordPuzzle(game: Game): List<String> =
+fun solve(game: Game): List<String> =
     File(game.dictionary)
         .bufferedReader()
         .lineSequence()
