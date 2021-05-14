@@ -17,20 +17,12 @@ To build this project with Gradle [Kotlin
 DLS](https://docs.gradle.org/current/userguide/kotlin_dsl.html), run
 
 ```bash
-./gradle spotlessApply compileKotlin
+./gradlew spotlessApply compileKotlin
 ```
 
 This will format code and build the Kotlin package.
 
-## Run
-
 To build a fat JAR I am using [Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
-
-```bash
-./gradlew run --args="-h"
-kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
-java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
-```
 
 ## Examples
 
@@ -39,7 +31,7 @@ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 Print program help message using one of:
 
 ```bash
-./gradlew run --args="-h"
+./gradlew run --args='-h'
 kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
 ```
@@ -61,15 +53,25 @@ Options:
 
 ### Run
 
-Run puzzle solution over reference data:
+Three ways to run puzzle solution:
 
 ```bash
 ./gradlew run --args="-m c -l adevcrsoi"
+
+kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
+
+java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
 ```
 
 ## References
 
 * [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
 * [Kotlin API Documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)
-* [WordPuzzle - Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
-* [WordPuzzle - Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
+
+## Other Implementations
+
+* [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
+* [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
+* [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
+* [Go](https://gitlab.com/frankhjung1/go-wordpuzzle)
+* [Python](https://gitlab.com/frankhjung1/python-wordpuzzle)

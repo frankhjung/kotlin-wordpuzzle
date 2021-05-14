@@ -28,7 +28,7 @@ fun isAllLowerCaseLetters(letters: String): Boolean = letters.toCharArray().all 
  * @return true if word is valid
  */
 fun isValid(letters: String, word: String): Boolean {
-  var lettersList = letters.toMutableList()
+  val lettersList = letters.toMutableList()
   for (c in word.toList()) {
     // remove a word character from letters - if present
     if (!lettersList.remove(c)) return false
