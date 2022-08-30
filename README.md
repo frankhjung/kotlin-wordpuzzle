@@ -70,6 +70,7 @@ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
 
 ## Other Implementations
 
+* [Clojure](https://gitlab.com/frankhjung1/clojure-wordpuzzle)
 * [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
 * [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
 * [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
