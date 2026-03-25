@@ -32,11 +32,11 @@ repositories {
 dependencies {
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib")
-  implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
-  implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.2")
-  implementation("org.slf4j:slf4j-simple:2.0.0-alpha1")
+  implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+  implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.6")
+  implementation("org.slf4j:slf4j-simple:2.0.16")
   testImplementation("org.jetbrains.kotlin:kotlin-test")
-  testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
 }
 
 /** Check that the build file is formatted correctly. */

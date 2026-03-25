@@ -14,17 +14,23 @@ See also the other language solutions:
 
 ## Build
 
+This project requires **Java 21** or later.
+
 To build this project with Gradle [Kotlin
 DLS](https://docs.gradle.org/current/userguide/kotlin_dsl.html), run
 
 ```bash
-./gradlew spotlessApply compileKotlin
+./gradlew build
 ```
 
-This will format code and build the Kotlin package.
+This will format code, run tests and build the Kotlin package.
 
 To build a fat JAR I am using
 [Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
+
+```bash
+./gradlew shadowJar
+```
 
 ## Examples
 
@@ -34,16 +40,12 @@ Print program help message using one of:
 
 ```bash
 ./gradlew run --args='-h'
-kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
-java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+java -jar build/libs/wordpuzzle-2.0.0-all.jar -h
 ```
 
 This will print the help message:
 
-For example:
-
-```bash
-$ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+```text
 Usage: wordpuzzle options_list
 Options:
     --dictionary, -d [dictionary/british] -> dictionary to use in word search { String }
@@ -60,9 +62,7 @@ Three ways to run puzzle solution:
 ```bash
 ./gradlew run --args="-m c -l adevcrsoi"
 
-kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
-
-java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
+java -jar build/libs/wordpuzzle-2.0.0-all.jar -m c -l adevcrsoi
 ```
 
 ## References
