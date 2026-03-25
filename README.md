@@ -23,13 +23,29 @@ DLS](https://docs.gradle.org/current/userguide/kotlin_dsl.html), run
 ./gradlew build
 ```
 
-This will format code, run tests and build the Kotlin package.
+This will run tests and build the Kotlin package.
 
 To build a fat JAR I am using
 [Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
 
 ```bash
 ./gradlew shadowJar
+```
+
+## Format
+
+To check if the code is formatted correctly (this will fail the build if there
+are formatting violations):
+
+```bash
+./gradlew spotlessCheck
+```
+
+To automatically fix formatting issues and apply the correct format to all
+files:
+
+```bash
+./gradlew spotlessApply
 ```
 
 ## Examples

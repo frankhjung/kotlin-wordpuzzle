@@ -18,7 +18,7 @@ data class Game(val dictionary: String, val size: Int, val mandatory: Char, val 
  * @param letters the letters to check
  * @return true if string contains only lowercase letters
  */
-fun isAllLowerCaseLetters(letters: String): Boolean = letters.all { it.isLowerCase() }
+fun isAllLowerCaseLetters(letters: String): Boolean = letters.all { it in 'a'..'z' }
 
 /**
  * Check if a dictionary word is valid.
