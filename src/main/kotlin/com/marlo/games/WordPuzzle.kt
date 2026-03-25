@@ -31,9 +31,11 @@ fun isValid(letters: String, word: String): Boolean {
   if (word.length > letters.length) return false
   val counts = IntArray(26)
   for (c in letters) {
+    if (c !in 'a'..'z') return false
     counts[c - 'a']++
   }
   for (c in word) {
+    if (c !in 'a'..'z') return false
     if (--counts[c - 'a'] < 0) return false
   }
   return true
@@ -52,6 +54,6 @@ fun solve(game: Game): List<String> =
       .filter { it.length in game.size..9 }
       .filter { it.contains(game.mandatory) }
       .filter { isValid(game.letters, it) }
-      .sortedWith(compareByDescending<String> { it.length }.thenBy { it })
-      .toList()
+      .toMutableList()
+      .apply { sortWith(compareByDescending<String> { it.length }.thenBy { it }) }
   }
