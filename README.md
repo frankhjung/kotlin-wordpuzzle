@@ -12,6 +12,34 @@ See also the other language solutions:
 * [Go](https://github.com/frankhjung/go-wordpuzzle)
 * [Python](https://github.com/frankhjung/python-wordpuzzle)
 
+## Quick Start
+
+To quickly build, test, and run an example puzzle solution:
+
+```bash
+# Build and run tests
+./gradlew build
+
+# Run an example puzzle
+./gradlew run --args="-m c -l adevcrsoi"
+```
+
+## Format
+
+To check if the code is formatted correctly (this will fail the build if there
+are formatting violations):
+
+```bash
+./gradlew spotlessCheck
+```
+
+To automatically fix formatting issues and apply the correct format to all
+files:
+
+```bash
+./gradlew spotlessApply
+```
+
 ## Build
 
 This project requires **Java 21** or later.
@@ -32,25 +60,25 @@ To build a fat JAR I am using
 ./gradlew shadowJar
 ```
 
-## Format
+## Test
 
-To check if the code is formatted correctly (this will fail the build if there
-are formatting violations):
-
-```bash
-./gradlew spotlessCheck
-```
-
-To automatically fix formatting issues and apply the correct format to all
-files:
+To run tests, use
 
 ```bash
-./gradlew spotlessApply
+./gradlew test
 ```
 
-## Examples
+## Run
 
-### Help
+Two ways to run puzzle solution:
+
+```bash
+./gradlew run --args="-m c -l adevcrsoi"
+
+java -jar build/libs/wordpuzzle-2.0.0-all.jar -m c -l adevcrsoi
+```
+
+## Help
 
 Print program help message using one of:
 
@@ -69,16 +97,6 @@ Options:
     --mandatory, -m -> mandatory character (always required) { String }
     --letters, -l -> letters to create words from (always required) { String }
     --help, -h -> Usage info
-```
-
-### Run
-
-Two ways to run puzzle solution:
-
-```bash
-./gradlew run --args="-m c -l adevcrsoi"
-
-java -jar build/libs/wordpuzzle-2.0.0-all.jar -m c -l adevcrsoi
 ```
 
 ## References
