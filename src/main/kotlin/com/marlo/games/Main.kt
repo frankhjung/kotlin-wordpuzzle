@@ -28,6 +28,7 @@ fun main(args: Array<String>) {
 
   // get username from commandline argument
   parser.parse(args)
+  require(mandatory.length == 1) { "mandatory character must be a single character" }
   logger.debug("dictionary: $dictionary")
   logger.debug("size: $size")
   logger.debug("mandatory: $mandatory")

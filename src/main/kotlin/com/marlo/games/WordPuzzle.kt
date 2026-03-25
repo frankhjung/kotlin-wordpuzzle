@@ -18,7 +18,7 @@ data class Game(val dictionary: String, val size: Int, val mandatory: Char, val 
  * @param letters the letters to check
  * @return true if string contains only lowercase letters
  */
-fun isAllLowerCaseLetters(letters: String): Boolean = letters.toCharArray().all { it.isLowerCase() }
+fun isAllLowerCaseLetters(letters: String): Boolean = letters.all { it.isLowerCase() }
 
 /**
  * Check if a dictionary word is valid.
@@ -28,10 +28,13 @@ fun isAllLowerCaseLetters(letters: String): Boolean = letters.toCharArray().all 
  * @return true if word is valid
  */
 fun isValid(letters: String, word: String): Boolean {
-  val lettersList = letters.toMutableList()
-  for (c in word.toList()) {
-    // remove a word character from letters - if present
-    if (!lettersList.remove(c)) return false
+  if (word.length > letters.length) return false
+  val counts = IntArray(26)
+  for (c in letters) {
+    counts[c - 'a']++
+  }
+  for (c in word) {
+    if (--counts[c - 'a'] < 0) return false
   }
   return true
 }
@@ -40,13 +43,15 @@ fun isValid(letters: String, word: String): Boolean {
  * Solve Word puzzle by filtering dictionary for only valid words.
  *
  * @param game
- * @return list of words
+ * @return list of words sorted by length (descending) then alphabetically
  */
 fun solve(game: Game): List<String> =
-  File(game.dictionary)
-    .bufferedReader()
-    .lineSequence()
-    .filter { it.length in game.size..9 }
-    .filter { it.contains(game.mandatory) }
-    .filter { isValid(game.letters, it) }
-    .toList()
+  File(game.dictionary).bufferedReader().use { reader ->
+    reader
+      .lineSequence()
+      .filter { it.length in game.size..9 }
+      .filter { it.contains(game.mandatory) }
+      .filter { isValid(game.letters, it) }
+      .sortedWith(compareByDescending<String> { it.length }.thenBy { it })
+      .toList()
+  }
