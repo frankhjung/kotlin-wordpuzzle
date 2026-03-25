@@ -5,43 +5,91 @@ Puzzle](https://nineletterword.tompaton.com/adevcrsoi/).
 
 See also the other language solutions:
 
-* [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
-* [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
-* [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
-* [Go](https://gitlab.com/frankhjung1/go-wordpuzzle)
-* [Python](https://gitlab.com/frankhjung1/python-wordpuzzle)
+* [Clojure](https://github.com/frankhjung/clojure-wordpuzzle)
+* [Haskell](https://github.com/frankhjung/haskell-wordpuzzle)
+* [Java](https://github.com/frankhjung/java-wordpuzzle)
+* [Kotlin](https://github.com/frankhjung/kotlin-wordpuzzle)
+* [Go](https://github.com/frankhjung/go-wordpuzzle)
+* [Python](https://github.com/frankhjung/python-wordpuzzle)
+
+## Quick Start
+
+To quickly build, test, and run an example puzzle solution:
+
+```bash
+# Build and run tests
+./gradlew build
+
+# Run an example puzzle
+./gradlew run --args="-m c -l adevcrsoi"
+```
+
+## Format
+
+To check if the code is formatted correctly (this will fail the build if there
+are formatting violations):
+
+```bash
+./gradlew spotlessCheck
+```
+
+To automatically fix formatting issues and apply the correct format to all
+files:
+
+```bash
+./gradlew spotlessApply
+```
 
 ## Build
+
+This project requires **Java 21** or later.
 
 To build this project with Gradle [Kotlin
 DLS](https://docs.gradle.org/current/userguide/kotlin_dsl.html), run
 
 ```bash
-./gradlew spotlessApply compileKotlin
+./gradlew build
 ```
 
-This will format code and build the Kotlin package.
+This will run tests and build the Kotlin package.
 
-To build a fat JAR I am using [Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
+To build a fat JAR I am using
+[Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
 
-## Examples
+```bash
+./gradlew shadowJar
+```
 
-### Help
+## Test
+
+To run tests, use
+
+```bash
+./gradlew test
+```
+
+## Run
+
+Two ways to run puzzle solution:
+
+```bash
+./gradlew run --args="-m c -l adevcrsoi"
+
+java -jar build/libs/wordpuzzle-2.0.0-all.jar -m c -l adevcrsoi
+```
+
+## Help
 
 Print program help message using one of:
 
 ```bash
 ./gradlew run --args='-h'
-kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
-java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+java -jar build/libs/wordpuzzle-2.0.0-all.jar -h
 ```
 
 This will print the help message:
 
-For example:
-
-```bash
-$ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -h
+```text
 Usage: wordpuzzle options_list
 Options:
     --dictionary, -d [dictionary/british] -> dictionary to use in word search { String }
@@ -51,28 +99,7 @@ Options:
     --help, -h -> Usage info
 ```
 
-### Run
-
-Three ways to run puzzle solution:
-
-```bash
-./gradlew run --args="-m c -l adevcrsoi"
-
-kotlin -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
-
-java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
-```
-
 ## References
 
 * [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
 * [Kotlin API Documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)
-
-## Other Implementations
-
-* [Clojure](https://gitlab.com/frankhjung1/clojure-wordpuzzle)
-* [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
-* [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
-* [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
-* [Go](https://gitlab.com/frankhjung1/go-wordpuzzle)
-* [Python](https://gitlab.com/frankhjung1/python-wordpuzzle)
