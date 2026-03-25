@@ -57,7 +57,7 @@ Options:
 
 ### Run
 
-Three ways to run puzzle solution:
+Two ways to run puzzle solution:
 
 ```bash
 ./gradlew run --args="-m c -l adevcrsoi"
