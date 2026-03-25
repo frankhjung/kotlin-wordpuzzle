@@ -5,11 +5,12 @@ Puzzle](https://nineletterword.tompaton.com/adevcrsoi/).
 
 See also the other language solutions:
 
-* [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
-* [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
-* [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
-* [Go](https://gitlab.com/frankhjung1/go-wordpuzzle)
-* [Python](https://gitlab.com/frankhjung1/python-wordpuzzle)
+* [Clojure](https://github.com/frankhjung/clojure-wordpuzzle)
+* [Haskell](https://github.com/frankhjung/haskell-wordpuzzle)
+* [Java](https://github.com/frankhjung/java-wordpuzzle)
+* [Kotlin](https://github.com/frankhjung/kotlin-wordpuzzle)
+* [Go](https://github.com/frankhjung/go-wordpuzzle)
+* [Python](https://github.com/frankhjung/python-wordpuzzle)
 
 ## Build
 
@@ -22,7 +23,8 @@ DLS](https://docs.gradle.org/current/userguide/kotlin_dsl.html), run
 
 This will format code and build the Kotlin package.
 
-To build a fat JAR I am using [Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
+To build a fat JAR I am using
+[Gradle Shadow](https://imperceptiblethoughts.com/shadow/)
 
 ## Examples
 
@@ -67,12 +69,3 @@ java -cp build/libs/games-1.0.0-all.jar com.marlo.games.MainKt -m c -l adevcrsoi
 
 * [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
 * [Kotlin API Documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)
-
-## Other Implementations
-
-* [Clojure](https://gitlab.com/frankhjung1/clojure-wordpuzzle)
-* [Haskell](https://gitlab.com/frankhjung1/haskell-wordpuzzle)
-* [Java](https://gitlab.com/frankhjung1/java-wordpuzzle)
-* [Kotlin](https://gitlab.com/frankhjung1/kotlin-wordpuzzle)
-* [Go](https://gitlab.com/frankhjung1/go-wordpuzzle)
-* [Python](https://gitlab.com/frankhjung1/python-wordpuzzle)

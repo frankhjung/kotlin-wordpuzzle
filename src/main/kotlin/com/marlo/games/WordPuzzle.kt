@@ -43,10 +43,10 @@ fun isValid(letters: String, word: String): Boolean {
  * @return list of words
  */
 fun solve(game: Game): List<String> =
-    File(game.dictionary)
-        .bufferedReader()
-        .lineSequence()
-        .filter { it.length in game.size..9 }
-        .filter { it.contains(game.mandatory) }
-        .filter { isValid(game.letters, it) }
-        .toList()
+  File(game.dictionary)
+    .bufferedReader()
+    .lineSequence()
+    .filter { it.length in game.size..9 }
+    .filter { it.contains(game.mandatory) }
+    .filter { isValid(game.letters, it) }
+    .toList()

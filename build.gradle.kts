@@ -6,15 +6,24 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_ERROR
 import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
 
 plugins {
-  id("com.diffplug.spotless") version "5.12.4"
-  id("com.github.johnrengelman.shadow") version "7.0.0"
-  kotlin("jvm") version "1.5.0"
+  id("com.diffplug.spotless") version "6.25.0"
+  id("com.gradleup.shadow") version "8.3.0"
+  kotlin("jvm") version "2.3.0"
   application
 }
 
 group = "frankhjung"
-version = "1.0.0"
-java.sourceCompatibility = JavaVersion.VERSION_11
+version = "2.0.0"
+
+kotlin {
+  jvmToolchain(21)
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(21))
+  }
+}
 
 repositories {
   mavenCentral()
@@ -37,14 +46,14 @@ spotless {
     trimTrailingWhitespace()
     indentWithSpaces(4)
   }
-  kotlin() {
+  kotlin {
     // ktfmt("0.24") // problems on gitlab
     target("**/*.kt")
-    ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+    ktlint().editorConfigOverride(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
   }
-  kotlinGradle() {
+  kotlinGradle {
     target("**/*.gradle.kts")
-    ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+    ktlint().editorConfigOverride(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
   }
   java { googleJavaFormat() }
 }
@@ -59,8 +68,8 @@ tasks.withType<Jar> {
       mapOf(
         "Main-Class" to application.mainClass,
         "Implementation-Title" to project.name,
-        "Implementation-Version" to project.version
-      )
+        "Implementation-Version" to project.version,
+      ),
     )
   }
 }
